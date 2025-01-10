@@ -1,0 +1,6 @@
+SELECT DISTINCT `owner` FROM `pet` WHERE 1;
+SELECT `name` FROM `pet` WHERE 1 ORDER BY name ASC;
+SELECT * FROM `pet` WHERE death IS NULL;
+SELECT DISTINCT owner FROM pet WHERE owner LIKE 'H%';
+SELECT name FROM pet WHERE name LIKE '%ff%';
+SELECT name FROM `pet` WHERE LENGTH(name)=4;
