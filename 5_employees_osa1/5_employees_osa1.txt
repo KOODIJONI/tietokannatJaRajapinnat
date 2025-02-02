@@ -1,0 +1,7 @@
+SELECT dept_name FROM departments;
+SELECT DISTINCT title from titles;
+SELECT MAX(salary) AS HighestSalary, MIN(salary) AS LowestSalary FROM salaries;
+SELECT AVG(salary) as AverageSalary FROM salaries;
+SELECT * FROM employees WHERE last_name = "Facello"; 
+SELECT * FROM employees WHERE birth_date >= '1950-1-1' AND birth_date<'1960-1-1';
+SELECT gender, COUNT(emp_no) FROM employees GROUP BY gender;

@@ -1,0 +1,29 @@
+mysql> ALTER TABLE pet DROP COLUMN owner; 
+mysql> ALTER TABLE pet ADD COLUMN petID INT PRIMARY KEY AUTO_INCREMENT; 
+mysql> ALTER TABLE pet ADD COLUMN ownerID INT; 
+mysql> ALTER TABLE pet ADD CONSTRAINT FOREIGN KEY(ownerID) REFERENCES 
+owner(ownerID); 
+
+
+DESCRIBE pet;
+
+
+
+name	varchar(20)	YES		NULL		
+species	varchar(20)	YES		NULL		
+sex	char(1)	YES		NULL		
+birth	date	YES		NULL		
+death	date	YES		NULL		
+petID	int	NO	PRI	NULL	auto_increment	
+ownerID	int	YES	MUL	NULL		
+
+
+DESCRIBE owner;
+
+
+
+first_name	varchar(255)	YES		NULL		
+last_name	varchar(255)	YES		NULL		
+address	varchar(255)	YES		NULL		
+ownerID	int	NO	PRI	NULL	auto_increment	
+
