@@ -1,42 +1,23 @@
-process.stdin.setEncoding('utf8');
+const prompt = require('prompt-sync')();
 
-function askForNumbers(callback) {
-    console.log("Syötä kaksi lukua välilyönnillä erotettuna:");
+function getSum() {
+    var s1 = prompt("Enter the first number:");
+    var num1=parseFloat(s1);
+    var num2 = prompt("Enter the second number:");
+    num2=parseFloat(num2);
+    return Math.max(num1, num2);
+}
+function palindrome() {
+    var s1 = prompt("Enter word:");
+    const ans = s1.split('').reverse().join('');
+    if(s1===ans){
+        console.log('The given word is Palindrome');
+    }else{
+        console.log('The given word is not Palindrome');
+    }
     
-    process.stdin.once('data', (data) => {
-        const numbers = data.trim().split(' ').map(Number);
-        
-        if (numbers.length !== 2 || numbers.some(isNaN)) {
-            console.log("Yritä uudelleen.");
-            askForNumbers(callback);
-            return;
-        }
-
-        const suurempi = Math.max(numbers[0], numbers[1]);
-        console.log(`Suurempi luku on: ${suurempi}`);
-        callback();
-    });
 }
 
-function askForWord() {
-    console.log("Syötä yksi sana:");
-    
-    process.stdin.once('data', (data) => {
-        const word = data.trim();
-        
-        if (!word) {
-            console.log("Virheellinen syöte. Yritä uudelleen.");
-            askForWord();
-            return;
-        }
+console.log(getSum(), 'on suurempi ' );
+palindrome();
 
-        const isPalindrome = word === word.split("").reverse().join("");
-        console.log(isPalindrome ? "Sana on palindromi" : "Sana ei ole palindromi");
-        
-        process.stdin.pause();
-    });
-}
-
-askForNumbers(() => {
-    askForWord();
-});
