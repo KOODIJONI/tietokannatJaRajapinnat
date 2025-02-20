@@ -41,6 +41,7 @@ const book = {
         addBook(id, name, author, isbn) {
             console.log("addBook: ");
             this.bookArray.push({'id_book': id, 'name': name, 'author': author, 'isbn': isbn});
+            
     }
 };
 book.getAllBook();

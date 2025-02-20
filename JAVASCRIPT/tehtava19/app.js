@@ -28,6 +28,7 @@ app.get('/user/:param1/:param2',(req,res) => {
 app.post('/user',(req,res) => {
     console.log(req.body);
     
+    
     res.send('POST pyyntö vastaanotettu');
 });
 
